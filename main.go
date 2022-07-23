@@ -1,9 +1,9 @@
 package main
 
 import (
-	"GinAPI/Config"
-	"GinAPI/Models"
-	"GinAPI/Routes"
+	"Gin_API/Config"
+	"Gin_API/Models"
+	"Gin_API/Routes"
 	"fmt"
 	"github.com/jinzhu/gorm"
 )

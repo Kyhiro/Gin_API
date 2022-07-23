@@ -1,7 +1,7 @@
 package Models
 
 import (
-	"GinAPI/Config"
+	"Gin_API/Config"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -17,6 +17,7 @@ func GetAllUsers(user *[]User) (err error) {
 //CreateUser ... Insert New data
 func CreateUser(user *User) (err error) {
 	fmt.Println(user)
+	fmt.Println(err)
 
 	if err = Config.DB.Create(user).Error; err != nil {
 		return err

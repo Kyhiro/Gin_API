@@ -1,7 +1,7 @@
 package Controllers
 
 import (
-	"GinAPI/Models"
+	"Gin_API/Models"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -21,13 +21,15 @@ func GetUsers(c *gin.Context) {
 //CreateUser ... Create User
 func CreateUser(c *gin.Context) {
 	var user Models.User
-	c.Bind(&user)
+	c.BindJSON(&user)
 	err := Models.CreateUser(&user)
 	if err != nil {
 		fmt.Println(err.Error())
-		c.AbortWithStatus(http.StatusNotFound)
+		c.AbortWithStatus(http.StatusBadRequest)
+		return
 	} else {
 		c.JSON(http.StatusOK, user)
+		return
 	}
 }
 
